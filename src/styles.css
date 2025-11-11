@@ -1,0 +1,51 @@
+:root{
+--bg:#111;
+--panel:#333;
+--muted:#8b8b8b;
+--accent:#a0a0a0;
+}
+body{margin:0;font-family:Inter,system-ui,Arial,sans-serif;background:var(--bg);color:white}
+.app{display:flex;min-height:100vh}
+.sidebar{width:220px;background:#555;padding:2rem 1rem}
+.sidebar nav{display:flex;flex-direction:column;gap:1rem}
+.sidebar a{color:white;text-decoration:none}
+.content{flex:1;padding:2rem}
+.page h2{font-size:2rem;margin-bottom:1rem}
+.form{display:flex;flex-direction:column;gap:1rem;max-width:600px}
+.form label{display:flex;flex-direction:column;font-weight:600}
+.form input,.form select{padding:0.4rem;border-radius:6px;border:1px solid #666;background:#222;color:white}
+.form-actions{margin-top:1rem}
+button{padding:0.6rem 1rem;border-radius:8px;border:none;background:#222;color:white}
+button.danger{background:#b33}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem}
+.card{background:#2b2b2b;padding:1rem;border-radius:8px;box-shadow:0 4px 8px rgba(0,0,0,0.6);display:flex;flex-direction:column}
+.card-body{color:inherit;text-decoration:none}
+.card .avatar{font-size:3rem}
+.card-actions{display:flex;gap:0.5rem;margin-top:1rem}
+.page.gallery.success .card{box-shadow:0 0 20px lime}
+.page.gallery.warning .card{box-shadow:0 0 20px gold}
+.page.gallery.danger .card{box-shadow:0 0 20px red;opacity:0.88}
+.stats{display:flex;gap:2rem;margin-bottom:1rem}
+
+
+/* responsive */
+@media(max-width:900px){.grid{grid-template-columns:1fr}}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;          /* ← adds space between cards */
+  padding: 20px;      /* ← adds space around the whole grid */
+}
+
+/* Individual cards */
+.card {
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  margin: 32px;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
