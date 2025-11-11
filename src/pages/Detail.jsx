@@ -30,18 +30,28 @@ export default function Detail() {
       <div>Speed: {crewmate.speed} mph</div>
       <div>Created: {new Date(crewmate.created_at).toLocaleString()}</div>
 
-      <h3>Attributes</h3>
-      <ul>
-        {crewmate.attributes &&
-          Object.entries(crewmate.attributes).map(([k, v]) => (
-            <li key={k}>
-              {k}: {String(v)}
-            </li>
-          ))}
-      </ul>
+      {/* Only show Attributes if they exist */}
+      {crewmate.attributes && Object.keys(crewmate.attributes).length > 0 && (
+        <>
+          <h3>Attributes</h3>
+          <ul>
+            {Object.entries(crewmate.attributes).map(([k, v]) => (
+              <li key={k}>
+                {k}: {String(v)}
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
 
-      <div className="detail-actions">
-        <button onClick={() => navigate(`/edit/${crewmate.id}`)}>Edit</button>
+      {/* Buttons with margin */}
+      <div className="detail-actions" style={{ margin: '20px' }}>
+        <button 
+          onClick={() => navigate(`/edit/${crewmate.id}`)}
+          style={{ marginRight: '10px' }}
+        >
+          Edit
+        </button>
         <button onClick={() => navigate('/gallery')}>Back to Gallery</button>
       </div>
     </div>
