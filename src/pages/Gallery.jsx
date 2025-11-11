@@ -8,7 +8,11 @@ export default function Gallery() {
   const [loading, setLoading] = useState(true);
 
   async function loadCrewmates() {
-    const { data, error } = await supabase.from("crewmates").select("*");
+    const { data, error } = await supabase
+      .from("crewmates")
+      .select("*")
+      .order("created_at", { ascending: false });
+
 
     if (error) {
       console.error("Error loading crewmates:", error);
